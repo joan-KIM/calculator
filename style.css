@@ -13,16 +13,19 @@ main{
     width:330px;
     height:470px;
     padding:1.5em 1em;
+    border-radius: 1em;
 }
 
 .screen-frame{
     background-color: chocolate;
     padding:0.5em;
+    border-radius: 0.6em;
 }
 
 .screen{
     background-color: darkkhaki;
     padding:0.4em;
+    border-radius: 0.5em;
 }
 
 .text{
