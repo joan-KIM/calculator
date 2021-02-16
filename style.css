@@ -10,8 +10,8 @@ main{
 
 .calculator-body{
     background-color: cornflowerblue;
-    width:330px;
-    height:470px;
+    width:320px;
+    height:450px;
     padding:1.5em 1em;
     border-radius: 1em;
 }
@@ -37,4 +37,20 @@ main{
 .button-container{
     background-color: darkgreen;
     margin-top:1.5em;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.button{
+    background-color: darkorange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.6em;
+}
+
+.zero{
+    grid-column-start: 1;
+    grid-column-end: span 2;
 }
