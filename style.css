@@ -5,7 +5,7 @@ body{
 }
 
 .calculator-body{
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
     width: 320px;
     height: 450px;
     padding: 1.5em 1em;
@@ -32,7 +32,7 @@ body{
 }
 
 .button-container{
-    /* background-color: darkgreen; */
+    background-color: darkgreen;
     margin-top: 1.5em;
     display: grid;
     grid-template-rows: repeat(5, 1fr);
@@ -42,11 +42,13 @@ body{
 
 .button{
     background-color: darkorange;
+    border: none;
+    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0.6em;
-    padding: 0.9em;
+    padding: 1.2em;
 }
 
 .zero{
