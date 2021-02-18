@@ -11,6 +11,8 @@ body{
     padding: 1.5em 1em;
     border-radius: 1em;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .screen-frame{
@@ -33,11 +35,11 @@ body{
 
 .button-container{
     background-color: darkgreen;
-    margin-top: 1.5em;
     display: grid;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
     gap: 1.2em 1.5em;
+    margin-top: auto;
 }
 
 .button{
