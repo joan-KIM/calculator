@@ -62,8 +62,10 @@ body{
     grid-column: 1 / 3;
 }
 
-.button:active{
+.button:hover{
     background-color: #F39C12;
     color: #FDFDFD;
+}
+.button:active{
     box-shadow: 4px 4px 15px #D35400 inset, -4px -4px 5px #FEF5E7 inset;
 }
