@@ -14,7 +14,7 @@ body{
     margin: auto;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 40px #283747;
+    box-shadow: 0 13px 40px #283747;
 }
 
 .screen-frame{
@@ -67,5 +67,6 @@ body{
     color: #FDFDFD;
 }
 .button:active{
-    box-shadow: 4px 4px 15px #D35400 inset, -4px -4px 5px #FEF5E7 inset;
+    box-shadow: inset 4px 4px 15px #D35400, 4px 4px 5px #ffffff;
+    color: #EDEDED;
 }
