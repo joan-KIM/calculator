@@ -1,3 +1,12 @@
+@import url(https://db.onlinewebfonts.com/c/1e670d88b23c7ab956f1829e3828a210?family=Digital-7);
+
+@font-face {
+    font-family: "Digital-7"; 
+    src:  url("https://db.onlinewebfonts.com/t/1e670d88b23c7ab956f1829e3828a210.woff2") format("woff2"), 
+    url("https://db.onlinewebfonts.com/t/1e670d88b23c7ab956f1829e3828a210.woff") format("woff"), 
+    url("https://db.onlinewebfonts.com/t/1e670d88b23c7ab956f1829e3828a210.ttf") format("truetype");
+}
+
 body{
     margin: 0;
     display: flex;
@@ -29,6 +38,7 @@ body{
     padding: 0.4em;
     border-radius: 0.5em;
     box-shadow: -2px -2px 3px #ffffff, 1px 1px 2px #AEAEC0;
+    font-family: "Digital-7";
 }
 
 .text{
