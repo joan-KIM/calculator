@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Digital-7"; 
+    src:  url("https://db.onlinewebfonts.com/t/1e670d88b23c7ab956f1829e3828a210.woff2") format("woff2"), 
+    url("https://db.onlinewebfonts.com/t/1e670d88b23c7ab956f1829e3828a210.woff") format("woff"), 
+    url("https://db.onlinewebfonts.com/t/1e670d88b23c7ab956f1829e3828a210.ttf") format("truetype");
+}
+
 body{
     margin: 0;
     display: flex;
@@ -19,23 +26,23 @@ body{
 
 .screen-frame{
     background-color: #f0f0f3;
-    padding: 0.5em;
+    padding: 0.3em;
     border-radius: 0.6em;
     box-shadow: -2px -2px 3px #ffffff, 1px 2px 6px #AEAEC0;
 }
 
-.screen{
+.screen-text{
     background-color: #222222;
-    padding: 0.4em;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
+    width:100%;
+    padding:0.2em;
+    padding-bottom: 0.1em; 
     box-shadow: -2px -2px 3px #ffffff, 1px 1px 2px #AEAEC0;
-}
-
-.text{
-    margin: 0;
-    font-size: 2.5em;
+    font-size:3em;
     text-align: right;
     color: #FDFDFD;
+    font-family: "Digital-7", "Lucida Console", "Courier New", sans-serif;
+    box-sizing: border-box;
 }
 
 .button-container{
@@ -51,11 +58,12 @@ body{
     border: none;
     outline: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
     border-radius: 0.6em;
-    padding: 1.2em;
+    padding: 1em;
     box-shadow: -2px -2px 3px #ffffff, 1px 1px 6px #AEAEC0;
+    font-family: 'Nunito', "Lucida Console", "Courier New", sans-serif;
+    font-size:1em;
 }
 
 .zero{
@@ -66,6 +74,7 @@ body{
     background-color: #F39C12;
     color: #FDFDFD;
 }
+
 .button:active{
     box-shadow: inset 4px 4px 15px #D35400, 4px 4px 5px #ffffff;
     color: #EDEDED;
