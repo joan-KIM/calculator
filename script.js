@@ -9,20 +9,13 @@ for (const $numBtn of $numBtns){
 
         // 클릭한 시점에 화면에 있는 값
         // innerHTML 1. 해당 DOM의 내용물을 바꿀 때 2. 해당 DOM의 내용물을 가지고 무언가를 할 때
-        const screenText = $screen.innerHTML;
+        const result = $screen.innerHTML;
+        const value = Number(event.target.innerHTML);
 
-        const value = event.target.innerHTML;
-
-        if(screenText.length === 11){
+        if(result.length === 11){
             return;
         }
 
-        if(!Number(screenText)){
-            $screen.innerHTML = value;
-            return;
-        }
-
-        $screen.innerHTML = screenText + value;
-        
+        $screen.innerHTML = Number(result) * 10 + value;
     })
 }
