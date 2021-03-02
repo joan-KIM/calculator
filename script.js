@@ -29,7 +29,15 @@ $acBtn.addEventListener("click", function(event){
 const $deleteBtn = document.querySelector(".delete");
 
 $deleteBtn.addEventListener("click", function(event){
-    const result = $screen.innerHTML;
+    const result = Number($screen.innerHTML);
     
     $screen.innerHTML = Math.floor(result / 10);
+})
+
+const $signBtn = document.querySelector(".sign");
+
+$signBtn.addEventListener("click", function(event){
+    const result = Number($screen.innerHTML);
+
+    $screen.innerHTML = -result;
 })
