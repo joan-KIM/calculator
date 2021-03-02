@@ -19,3 +19,9 @@ for (const $numBtn of $numBtns){
         $screen.innerHTML = Number(result) * 10 + value;
     })
 }
+
+const $acBtn = document.querySelector(".all-clear");
+
+$acBtn.addEventListener("click", function(event){
+    $screen.innerHTML = 0;
+})
