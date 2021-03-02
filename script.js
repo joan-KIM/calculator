@@ -25,3 +25,11 @@ const $acBtn = document.querySelector(".all-clear");
 $acBtn.addEventListener("click", function(event){
     $screen.innerHTML = 0;
 })
+
+const $deleteBtn = document.querySelector(".delete");
+
+$deleteBtn.addEventListener("click", function(event){
+    const result = $screen.innerHTML;
+    
+    $screen.innerHTML = Math.floor(result / 10);
+})
