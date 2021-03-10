@@ -4,11 +4,15 @@ const $numBtns = document.querySelectorAll(".number");
 // number(레퍼런스)에는 값만 들어있음.
 const $screen = document.querySelector(".screen-text");
 
-let status = 'integer';
+let status = INTEGER;
+const INTEGER = "integer";
+const DECIMAL = "decimal";
+const CLICK = "click";
+
 // let dec = 0.1;
 
 for (const $numBtn of $numBtns){
-    $numBtn.addEventListener("click", function(event){
+    $numBtn.addEventListener(CLICK, function(event){
 
         // 클릭한 시점에 화면에 있는 값
         // innerHTML 1. 해당 DOM의 내용물을 바꿀 때 2. 해당 DOM의 내용물을 가지고 무언가를 할 때
@@ -19,7 +23,7 @@ for (const $numBtn of $numBtns){
             return; 
         }
 
-        if(status === 'decimal'){
+        if(status === DECIMAL){
             // console.log(dec);
             // $screen.innerHTML = Number(result) + value * dec;
             // dec = dec / 10;
@@ -35,15 +39,15 @@ for (const $numBtn of $numBtns){
 
 const $acBtn = document.querySelector(".all-clear");
 
-$acBtn.addEventListener("click", function(event){
+$acBtn.addEventListener(CLICK, function(event){
     $screen.innerHTML = 0;
-    status = 'integer';
+    status = INTEGER;
     // dec = 0.1;
 })
 
 const $deleteBtn = document.querySelector(".delete");
 
-$deleteBtn.addEventListener("click", function(event){
+$deleteBtn.addEventListener(CLICK, function(event){
     const result = Number($screen.innerHTML);
     
     $screen.innerHTML = Math.floor(result / 10);
@@ -51,7 +55,7 @@ $deleteBtn.addEventListener("click", function(event){
 
 const $signBtn = document.querySelector(".sign");
 
-$signBtn.addEventListener("click", function(event){
+$signBtn.addEventListener(CLICK, function(event){
     const result = Number($screen.innerHTML);
 
     $screen.innerHTML = -result;
@@ -59,9 +63,9 @@ $signBtn.addEventListener("click", function(event){
 
 const $decimalBtn = document.querySelector(".decimal");
 
-$decimalBtn.addEventListener("click", function(event){
-    status = 'decimal';
+$decimalBtn.addEventListener(CLICK, function(event){
+    status = DECIMAL;
     const result = $screen.innerHTML;
 
-    $screen.innerHTML = result + '.';
+    $screen.innerHTML = result + ".";
 })
