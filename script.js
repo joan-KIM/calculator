@@ -45,9 +45,18 @@ $acBtn.addEventListener(CLICK, function(event){
 const $deleteBtn = document.querySelector(".delete");
 
 $deleteBtn.addEventListener(CLICK, function(event){
-    const result = Number($screen.innerHTML);
+    const result = $screen.innerHTML;
+
+    if(Number(result) < 10 && Number(result) > -10 && Number.isInteger(Number(result))){
+        $screen.innerHTML = 0;
+        return;
+    }
+
+    if(result.slice(-1) === '.'){
+        status = INTEGER;
+    }
     
-    $screen.innerHTML = Math.floor(result / 10);
+    $screen.innerHTML = result.slice(0, -1);
 })
 
 const $signBtn = document.querySelector(".sign");
