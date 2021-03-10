@@ -4,10 +4,10 @@ const $numBtns = document.querySelectorAll(".number");
 // number(레퍼런스)에는 값만 들어있음.
 const $screen = document.querySelector(".screen-text");
 
-let status = INTEGER;
 const INTEGER = "integer";
 const DECIMAL = "decimal";
 const CLICK = "click";
+let status = INTEGER;
 
 for (const $numBtn of $numBtns){
     $numBtn.addEventListener(CLICK, function(event){
@@ -26,8 +26,12 @@ for (const $numBtn of $numBtns){
             return;
         }   
        
-        $screen.innerHTML = Number(result) * 10 + (Number(result) < 0) ? -value : value;
-
+        if(Number(result) < 0){
+            $screen.innerHTML = Number(result) * 10 - value;
+        }else{
+            $screen.innerHTML = Number(result) * 10 + value;
+        }
+        
     })
 }
 
@@ -57,8 +61,12 @@ $signBtn.addEventListener(CLICK, function(event){
 const $decimalBtn = document.querySelector(".decimal");
 
 $decimalBtn.addEventListener(CLICK, function(event){
-    status = DECIMAL;
+    if(status === DECIMAL){
+        return;
+    }
+
     const result = $screen.innerHTML;
 
     $screen.innerHTML = result + ".";
+    status = DECIMAL;
 })
