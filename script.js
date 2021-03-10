@@ -9,8 +9,6 @@ const INTEGER = "integer";
 const DECIMAL = "decimal";
 const CLICK = "click";
 
-// let dec = 0.1;
-
 for (const $numBtn of $numBtns){
     $numBtn.addEventListener(CLICK, function(event){
 
@@ -24,16 +22,12 @@ for (const $numBtn of $numBtns){
         }
 
         if(status === DECIMAL){
-            // console.log(dec);
-            // $screen.innerHTML = Number(result) + value * dec;
-            // dec = dec / 10;
-
             $screen.innerHTML = Number(result + value);
-        }else if(Number(result) < 0){
-            $screen.innerHTML = -(Number(-result) * 10 + value);
-        }else{
-            $screen.innerHTML = Number(result) * 10 + value;
-        }
+            return;
+        }   
+       
+        $screen.innerHTML = Number(result) * 10 + (Number(result) < 0) ? -value : value;
+
     })
 }
 
@@ -42,7 +36,6 @@ const $acBtn = document.querySelector(".all-clear");
 $acBtn.addEventListener(CLICK, function(event){
     $screen.innerHTML = 0;
     status = INTEGER;
-    // dec = 0.1;
 })
 
 const $deleteBtn = document.querySelector(".delete");
