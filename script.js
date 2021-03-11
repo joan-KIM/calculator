@@ -52,6 +52,7 @@ const $acBtn = document.querySelector(".all-clear");
 $acBtn.addEventListener(CLICK, function(event){
     $screen.innerHTML = 0;
     status = INTEGER;
+    calculateOperator = NONE;
 })
 
 const $deleteBtn = document.querySelector(".delete");
