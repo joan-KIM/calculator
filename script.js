@@ -34,7 +34,7 @@ for (const $numBtn of $numBtns){
         }
 
         if(status === DECIMAL){
-            $screen.innerHTML = Number(result + value);
+            $screen.innerHTML = result + value;
             return;
         }   
        
@@ -142,11 +142,9 @@ function calculate(){
 
     if(calculateOperator === NONE){
         firstOperand = Number($screen.innerHTML);
-        console.log(firstOperand);
         return;
     }else{
         secondOperand = Number($screen.innerHTML);
-        console.log(secondOperand);
     }
 
     switch(calculateOperator){
