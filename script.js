@@ -138,8 +138,7 @@ let result = 0;
 
 function calculate(){
     previousBtn = OPERATOR;
-
-    console.log(calculateOperator);
+    status = INTEGER;
 
     if(calculateOperator === NONE){
         firstOperand = Number($screen.innerHTML);
