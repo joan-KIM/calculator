@@ -1,7 +1,5 @@
-//  DOM들의 nodelist(숫자 배열이 아님)
 const $numBtns = document.querySelectorAll(".number");
 
-// number(레퍼런스)에는 값만 들어있음.
 const $screen = document.querySelector(".screen-text");
 
 const INTEGER = "integer";
@@ -18,8 +16,6 @@ let previousBtn = NUMBER;
 for (const $numBtn of $numBtns){
     $numBtn.addEventListener(CLICK, function(event){
 
-        // 클릭한 시점에 화면에 있는 값
-        // innerHTML 1. 해당 DOM의 내용물을 바꿀 때 2. 해당 DOM의 내용물을 가지고 무언가를 할 때
         const result = $screen.innerHTML;
         const value = Number(event.target.innerHTML);
 
@@ -47,6 +43,62 @@ for (const $numBtn of $numBtns){
     })
 }
 
+const $buttons = document.querySelector(".button-container");
+
+const ADDITION = "addition";
+const SUBTRACT = "subtract";
+const MULTIPLY = "multiply";
+const DIVISION = "division";
+const NONE = "none";
+
+let calculateOperator = NONE;
+
+$buttons.addEventListener(CLICK, function(event){
+    const $target = event.target;
+    const action = $target.dataset.action;
+
+    if(action === "all-clear"){
+        $screen.innerHTML = 0;
+        status = INTEGER;
+        calculateOperator = NONE;
+    }
+
+    if(action === "delete"){
+        const result = $screen.innerHTML;
+
+        if(result.length <= 2 && Number(result) < 10 && Number(result) > -10 && Number.isInteger(Number(result))){
+            $screen.innerHTML = 0;
+            status = INTEGER;
+            return;
+        }
+    
+        if(result.slice(-1) === "."){
+            status = INTEGER;
+        }
+        
+        $screen.innerHTML = result.slice(0, -1);
+    }
+
+    if(action === "sign"){
+        const result = Number($screen.innerHTML);
+
+        $screen.innerHTML = -result;
+    }
+
+    if(action === "decimal"){
+        if(status === DECIMAL){
+            return;
+        }
+    
+        const result = $screen.innerHTML;
+    
+        $screen.innerHTML = result + ".";
+        status = DECIMAL;
+    }
+
+})
+
+/*
 const $acBtn = document.querySelector(".all-clear");
 
 $acBtn.addEventListener(CLICK, function(event){
@@ -168,4 +220,4 @@ function calculate(){
 
     firstOperand = result;
 }
-
+*/

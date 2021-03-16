@@ -5,13 +5,13 @@
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 
-    <script src="script.js" defer></script>
-
     <link href="https://db.onlinewebfonts.com/c/1e670d88b23c7ab956f1829e3828a210?family=Digital-7" rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel = "stylesheet" href = "style.css">
+
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -21,25 +21,25 @@
         </div>
 
         <div class = "button-container">
-            <button class = "button all-clear">AC</button>
-            <button class = "button delete"><i class="material-icons">backspace</i></button>
-            <button class = "button sign">+/-</button>
-            <button class = "button division">/</button>
+            <button class = "button" data-action = "all-clear">AC</button>
+            <button class = "button" data-action = "delete"><i class="material-icons" data-action = "delete">backspace</i></button>
+            <button class = "button" data-action = "sign">+/-</button>
+            <button class = "button" data-action = "division">/</button>
             <button class = "button number">7</button>
             <button class = "button number">8</button>
             <button class = "button number">9</button>
-            <button class = "button multiply">X</button>
+            <button class = "button" data-action = "multiply">X</button>
             <button class = "button number">4</button>
             <button class = "button number">5</button>
             <button class = "button number">6</button>
-            <button class = "button subtract">-</button>
+            <button class = "button" data-action = "subtract">-</button>
             <button class = "button number">1</button>
             <button class = "button number">2</button>
             <button class = "button number">3</button>
-            <button class = "button add">+</button>
+            <button class = "button" data-action = "addition">+</button>
             <button class = "button number zero">0</button>
-            <button class = "button decimal">.</button>
-            <button class = "button equals">=</button>
+            <button class = "button" data-action = "decimal">.</button>
+            <button class = "button" data-action = "equals">=</button>
         </div>
     </main>
 </body>
