@@ -66,9 +66,8 @@ $buttons.addEventListener(CLICK, function(event){
     if(action === "delete"){
         const result = $screen.innerHTML;
 
-        if(result.length <= 2 && Number(result) < 10 && Number(result) > -10 && Number.isInteger(Number(result))){
+        if(result.length === 1 || (result.startsWith("-") && result.length === 2)){
             $screen.innerHTML = 0;
-            status = INTEGER;
             return;
         }
     
