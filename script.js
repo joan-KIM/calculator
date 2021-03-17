@@ -83,6 +83,13 @@ function decimal(){
         return;
     }
 
+    if(previousBtn === OPERATOR){
+        $screen.innerHTML = "0.";
+        status = DECIMAL;
+        previousBtn = NUMBER;
+        return;
+    }
+
     const result = $screen.innerHTML;
 
     $screen.innerHTML = result + ".";
