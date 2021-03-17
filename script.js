@@ -1,5 +1,4 @@
 const $numBtns = document.querySelectorAll(".number");
-
 const $screen = document.querySelector(".screen-text");
 
 const INTEGER = "integer";
@@ -90,6 +89,43 @@ function decimal(){
     status = DECIMAL;
 }
 
+let firstOperand = 0;
+let secondOperand = 0;
+let result = 0;
+
+function calculate(){
+    previousBtn = OPERATOR;
+    status = INTEGER;
+
+    if(calculateOperator === NONE){
+        firstOperand = Number($screen.innerHTML);
+        return;
+    }else{
+        secondOperand = Number($screen.innerHTML);
+    }
+
+    switch(calculateOperator){
+        case ADDITION :
+            result = firstOperand + secondOperand;
+            $screen.innerHTML = result;
+            break;
+        case SUBTRACT : 
+            result = firstOperand - secondOperand;
+            $screen.innerHTML = result;
+            break;
+        case MULTIPLY : 
+            result = firstOperand * secondOperand;
+            $screen.innerHTML = result;
+            break;
+        case DIVISION :
+            result = firstOperand / secondOperand;
+            $screen.innerHTML = result;
+            break;
+    }
+
+    firstOperand = result;
+}
+
 $buttons.addEventListener(CLICK, function(event){
     const $target = event.target;
     const action = $target.dataset.action;
@@ -107,95 +143,26 @@ $buttons.addEventListener(CLICK, function(event){
         case "decimal":
             decimal();
             break;
+        case "addition":
+            calculate();
+            calculateOperator = ADDITION;
+            break;
+        case "subtract":
+            calculate();
+            calculateOperator = SUBTRACT;
+            break;
+        case "division":
+            calculate();
+            calculateOperator = DIVISION;
+            break;
+        case "multiply":
+            calculate();
+            calculateOperator = MULTIPLY;
+            break;
+        case "equals":
+            calculate();
+            calculateOperator = NONE;
+            break;
     }
 
 })
-
-
-/*
-const $acBtn = document.querySelector(".all-clear");
-
-$acBtn.addEventListener(CLICK, function(event){
-    $screen.innerHTML = 0;
-    status = INTEGER;
-    calculateOperator = NONE;
-})
-
-const $deleteBtn = document.querySelector(".delete");
-
-$deleteBtn.addEventListener(CLICK, function(event){
-    const result = $screen.innerHTML;
-
-    if(Number(result) < 10 && Number(result) > -10 && Number.isInteger(Number(result))){
-        $screen.innerHTML = 0;
-        return;
-    }
-
-    if(result.slice(-1) === "."){
-        status = INTEGER;
-    }
-    
-    $screen.innerHTML = result.slice(0, -1);
-})
-
-const $signBtn = document.querySelector(".sign");
-
-$signBtn.addEventListener(CLICK, function(event){
-    const result = Number($screen.innerHTML);
-
-    $screen.innerHTML = -result;
-})
-
-const $decimalBtn = document.querySelector(".decimal");
-
-$decimalBtn.addEventListener(CLICK, function(event){
-    if(status === DECIMAL){
-        return;
-    }
-
-    const result = $screen.innerHTML;
-
-    $screen.innerHTML = result + ".";
-    status = DECIMAL;
-})
-
-const $addBtn = document.querySelector(".add");
-const $subtractBtn = document.querySelector(".subtract");
-const $multiplyBtn = document.querySelector(".multiply");
-const $divisionBtn = document.querySelector(".division");
-const $equalsBtn = document.querySelector(".equals");
-
-const ADDITION = "addition";
-const SUBTRACT = "subtract";
-const MULTIPLY = "multiply";
-const DIVISION = "division";
-const NONE = "none";
-
-let calculateOperator = NONE;
-
-$addBtn.addEventListener(CLICK, function(event){
-    calculate();
-    calculateOperator = ADDITION;
-})
-
-$subtractBtn.addEventListener(CLICK, function(event){
-    calculate();
-    calculateOperator = SUBTRACT;
-})
-
-$multiplyBtn.addEventListener(CLICK, function(event){
-    calculate();
-    calculateOperator = MULTIPLY;
-})
-
-$divisionBtn.addEventListener(CLICK, function(event){
-    calculate();
-    calculateOperator = DIVISION;
-})
-
-$equalsBtn.addEventListener(CLICK, function(event){
-    calculate();
-    calculateOperator = NONE;
-})
-
-*/
