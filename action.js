@@ -20,8 +20,16 @@ function backSpace(){
 }
 
 function sign(){
-    const result = Number($screen.innerHTML);
-    $screen.innerHTML = -result;
+    const result = $screen.innerHTML;
+
+    if(!Number(result)) return;
+    
+    if(result.startsWith("-")){
+        $screen.innerHTML = result.slice(1,);
+        return;
+    }
+
+    $screen.innerHTML = "-" + result;
 }
 
 function decimal(){
