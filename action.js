@@ -59,21 +59,9 @@ function calculate(action){
     }else{
         secondOperand = Number(getScreen());
     }
-    
-    switch(calculateOperator){
-        case ADDITION :
-            result = firstOperand + secondOperand;
-            break;
-        case SUBTRACT : 
-            result = firstOperand - secondOperand;
-            break;
-        case MULTIPLY : 
-            result = firstOperand * secondOperand;
-            break;
-        case DIVISION :
-            result = firstOperand / secondOperand;
-            break;
-    }
+
+    result = operator?.[calculateOperator](firstOperand, secondOperand);
+
     setScreen(result);
 
     firstOperand = result;
