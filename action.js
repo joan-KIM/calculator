@@ -60,7 +60,7 @@ function calculate(action){
         secondOperand = Number(getScreen());
     }
 
-    result = operator?.[calculateOperator](firstOperand, secondOperand);
+    result = operator[calculateOperator](firstOperand, secondOperand);
 
     setScreen(result);
 
