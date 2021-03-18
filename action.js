@@ -1,35 +1,35 @@
 function allClear(){
-    $screen.innerHTML = 0;
-    status = INTEGER;
-    calculateOperator = NONE;
+    setScreen(0);
+    setStatus(INTEGER);
+    setCalculateOperator(NONE);
 }
 
 function backSpace(){
-    const result = $screen.innerHTML;
+    const result = getScreen();
 
     if(result.length === 1 || (result.startsWith("-") && result.length === 2)){
-        $screen.innerHTML = 0;
+        setScreen(0);
         return;
     }
 
     if(result.slice(-1) === "."){
-        status = INTEGER;
+        setStatus(INTEGER);
     }
     
-    $screen.innerHTML = result.slice(0, -1);
+    setScreen(result.slice(0, -1));
 }
 
 function sign(){
-    const result = $screen.innerHTML;
+    const result = getScreen();
 
     if(!Number(result)) return;
     
     if(result.startsWith("-")){
-        $screen.innerHTML = result.slice(1,);
+        setScreen(result.slice(1));
         return;
     }
 
-    $screen.innerHTML = "-" + result;
+    setScreen(`-${result}`);
 }
 
 function decimal(){
@@ -37,74 +37,62 @@ function decimal(){
         return;
     }
 
+    setStatus(DECIMAL);
+    
     if(previousBtn === OPERATOR){
-        $screen.innerHTML = "0.";
-        status = DECIMAL;
+        setScreen('0.');
         previousBtn = NUMBER;
         return;
     }
 
-    const result = $screen.innerHTML;
-
-    $screen.innerHTML = result + ".";
-    status = DECIMAL;
+    setScreen(`${getScreen()}.`);
 }
 
-function calculate(){
+function calculate(action){
     previousBtn = OPERATOR;
-    status = INTEGER;
-
+    setStatus(INTEGER);
+    
     if(calculateOperator === NONE){
-        firstOperand = Number($screen.innerHTML);
+        firstOperand = Number(getScreen());
+        setCalculateOperator(action);
         return;
     }else{
-        secondOperand = Number($screen.innerHTML);
+        secondOperand = Number(getScreen());
     }
-
+    
     switch(calculateOperator){
         case ADDITION :
             result = firstOperand + secondOperand;
-            $screen.innerHTML = result;
             break;
         case SUBTRACT : 
             result = firstOperand - secondOperand;
-            $screen.innerHTML = result;
             break;
         case MULTIPLY : 
             result = firstOperand * secondOperand;
-            $screen.innerHTML = result;
             break;
         case DIVISION :
             result = firstOperand / secondOperand;
-            $screen.innerHTML = result;
             break;
     }
+    setScreen(result);
 
     firstOperand = result;
+    setCalculateOperator(action);
 }
 
 function numberHandler(value){
-    const result = $screen.innerHTML;
+    const result = getScreen();
 
     if(result.length === 11){
         return; 
     }
 
-    if(previousBtn === OPERATOR){
-        $screen.innerHTML = value;
+    if(previousBtn === OPERATOR || result === '0'){
+        setScreen(value);
         previousBtn = NUMBER;
         return;
     }
 
-    if(status === DECIMAL){
-        $screen.innerHTML = result + value;
-        return;
-    }   
-    
-    if(Number(result) < 0){
-        $screen.innerHTML = Number(result) * 10 - value;
-    }else{
-        $screen.innerHTML = Number(result) * 10 + value;
-    }
+    setScreen(result + value);
 }
 

@@ -1,40 +1,20 @@
 function actionHandler(action, value){
     switch(action){
-        case "number":
+        case NUMBER:
             numberHandler(value);
             break;
-        case "all-clear":
+        case ALL_CLEAR:
             allClear();
             break;
-        case "delete":
+        case DELETE:
             backSpace();
             break;
-        case "sign":
+        case SIGN:
             sign();
             break;
-        case "decimal":
+        case DECIMAL:
             decimal();
             break;
-        case "addition":
-            calculate();
-            calculateOperator = ADDITION;
-            break;
-        case "subtract":
-            calculate();
-            calculateOperator = SUBTRACT;
-            break;
-        case "division":
-            calculate();
-            calculateOperator = DIVISION;
-            break;
-        case "multiply":
-            calculate();
-            calculateOperator = MULTIPLY;
-            break;
-        case "equals":
-            calculate();
-            calculateOperator = NONE;
-            break;
+        default: calculate(action);
     }
-
 }
